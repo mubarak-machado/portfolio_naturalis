@@ -21,11 +21,11 @@
             theme: {
                 extend: {
                     colors: {
-                        background: '#060913', // Deep navy/black
-                        surface: '#0d111c',
-                        surfaceLight: '#161b2e',
+                        background: '#03050A', // Ultra deep black/navy
+                        surface: '#090C15',
+                        surfaceLight: '#111524',
                         accent: '#10B981', // Neon green
-                        accentHover: '#0ea5e9' // Ocean blue
+                        accentHover: '#06b6d4' // Cyan
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -49,7 +49,13 @@
     <style>
         body {
             background-color: theme('colors.background');
-            color: #e2e8f0;
+            color: #d1d5db;
+            /* Tech Grid Background */
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: -1px -1px;
         }
         
         /* Bento Box Glassmorphism */
@@ -127,9 +133,9 @@
 
     <main class="relative pt-32 pb-20">
         <!-- HERO SECTION -->
-        <section class="max-w-6xl mx-auto px-6 py-20 text-center flex flex-col items-center justify-center min-h-[70vh] reveal-on-scroll">
-            <span class="px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6 inline-block border border-accent/20">
-                Disponível para novos projetos
+        <section class="max-w-6xl mx-auto px-6 py-20 text-center flex flex-col items-center justify-center min-h-[70vh] reveal-on-scroll relative z-10">
+            <span class="font-mono px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs tracking-wider mb-6 inline-block border border-accent/20">
+                ~/status/disponivel_para_projetos
             </span>
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
                 Transformando Desafios Complexos <br class="hidden md:block"/>
@@ -139,11 +145,11 @@
                 Engenheiro de Software Sênior especializado em arquiteturas resilientes e experiências digitais de classe mundial. Focado em gerar impacto real através de código limpo.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#work" class="px-8 py-4 rounded-full bg-accent text-gray-900 font-bold hover:bg-emerald-400 hover:scale-105 transition-all text-lg shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                <a href="#work" class="px-8 py-4 rounded-md bg-accent text-gray-900 font-bold hover:bg-emerald-400 border border-accent hover:scale-105 transition-all text-lg shadow-[0_0_20px_rgba(16,185,129,0.2)]">
                     Veja Meus Projetos
                 </a>
-                <a href="#contact" class="px-8 py-4 rounded-full bg-surfaceLight border border-white/10 text-white font-semibold hover:bg-white/5 transition-all text-lg">
-                    Vamos Conversar
+                <a href="#contact" class="px-8 py-4 rounded-md bg-surfaceLight border border-white/10 text-white font-semibold hover:bg-white/5 transition-all text-lg font-mono text-sm">
+                    _vamos_conversar
                 </a>
             </div>
         </section>
@@ -152,8 +158,8 @@
         <section id="about" class="max-w-6xl mx-auto px-6 py-20">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Large Bio Card -->
-                <div class="bento-card col-span-1 md:col-span-2 p-8 reveal-on-scroll">
-                    <h3 class="text-accent font-semibold tracking-wider text-sm mb-2 uppercase">Sobre Mim</h3>
+                <div class="bento-card col-span-1 md:col-span-2 p-8 reveal-on-scroll border border-accent/10">
+                    <h3 class="text-accent font-mono tracking-widest text-xs mb-2 uppercase">// Sobre Mim</h3>
                     <h2 class="text-3xl font-bold text-white mb-4">Engenharia com Propósito.</h2>
                     <p class="text-gray-400 leading-relaxed mb-6">
                         Com base sólida em desenvolvimento full-stack e arquitetura de nuvem, possuo vasta experiência ajudando empresas a construírem do zero ou escalarem suas plataformas para o próximo nível. Prezo pela experiência do usuário, aliada a uma infraestrutura impecável.
@@ -169,8 +175,8 @@
                 </div>
 
                 <!-- Skills Card -->
-                <div class="bento-card col-span-1 p-8 reveal-on-scroll">
-                    <h3 class="text-accent font-semibold tracking-wider text-sm mb-4 uppercase">Stack Tooling</h3>
+                <div class="bento-card col-span-1 p-8 reveal-on-scroll border border-accent/10">
+                    <h3 class="text-accent font-mono tracking-widest text-xs mb-4 uppercase">// Stack_Tooling</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">React & Next.js</span>
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">TypeScript</span>
@@ -185,8 +191,8 @@
         </section>
 
         <!-- PORTFOLIO SECTION -->
-        <section id="work" class="max-w-6xl mx-auto px-6 py-20">
-            <h2 class="text-4xl font-bold text-white mb-10 text-center reveal-on-scroll">Trabalhos em Destaque</h2>
+        <section id="work" class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center reveal-on-scroll font-mono"><span class="text-accent">&gt; </span>Trabalhos em Destaque<span class="animate-pulse">_</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Project 1 -->
