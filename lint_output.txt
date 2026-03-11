@@ -1,0 +1,81 @@
+
+> web_app@0.0.0 lint
+> eslint .
+
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/contexts/AuthContext.tsx
+  36:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/contexts/AuthContext.tsx:36:13
+  34 |         // Se o Supabase não está configurado, libera a UI imediatamente
+  35 |         if (!isSupabaseConfigured) {
+> 36 |             setLoading(false)
+     |             ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  37 |             return
+  38 |         }
+  39 |  react-hooks/set-state-in-effect
+  94:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-refresh/only-export-components
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/contexts/ModalContext.tsx
+    2:10  error  'X' is defined but never used                                                                                                   @typescript-eslint/no-unused-vars
+  121:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/pages/CustomersPage.tsx
+  80:23  error    Error: Cannot access variable before it is declared
+
+`loadCustomers` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/pages/CustomersPage.tsx:80:23
+  78 |     const [loadingOrders, setLoadingOrders] = useState(false)
+  79 |
+> 80 |     useEffect(() => { loadCustomers() }, [])
+     |                       ^^^^^^^^^^^^^ `loadCustomers` accessed before it is declared
+  81 |
+  82 |     async function loadCustomers() {
+  83 |         setLoading(true)
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/pages/CustomersPage.tsx:82:5
+   80 |     useEffect(() => { loadCustomers() }, [])
+   81 |
+>  82 |     async function loadCustomers() {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  83 |         setLoading(true)
+      | ^^^^^^^^^^^^^^^^^^^^^^^^
+>  84 |         // Busca clientes junto com suas vendas agregadas para calcular LTV
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 126 |         setLoading(false)
+      | ^^^^^^^^^^^^^^^^^^^^^^^^
+> 127 |     }
+      | ^^^^^^ `loadCustomers` is declared here
+  128 |
+  129 |     const filtered = customers.filter((c) =>
+  130 |         c.name.toLowerCase().includes(search.toLowerCase()) ||  react-hooks/immutability
+  80:42  warning  React Hook useEffect has a missing dependency: 'loadCustomers'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/exhaustive-deps
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/pages/ProductsPage.tsx
+  79:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/mubarak/dev/ro_naturalis/web_app/src/pages/ProductsPage.tsx:79:9
+  77 |     // ── Carrega produtos do Supabase ──────────────────────
+  78 |     useEffect(() => {
+> 79 |         loadProducts()
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  80 |     }, [])
+  81 |
+  82 |     // ── Filtra por busca ──────────────────────────────────  react-hooks/set-state-in-effect
+
+✖ 7 problems (6 errors, 1 warning)
+

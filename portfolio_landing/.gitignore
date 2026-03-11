@@ -1,0 +1,16 @@
+# Local Env
+.env
+
+# MacOS
+.DS_Store
+
+# Deployment scripts
+deploy.sh
+deploy.py
+deploy_lftp.sh
+list_ftp.py
+force_put.sh
+
+# IDE
+.idea/
+.vscode/

@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   Rô Naturalis — Design System
+   ============================================
+   Variáveis CSS globais que controlam toda a 
+   aparência do sistema. Para mudar cores, fontes
+   ou espaçamentos, edite apenas aqui.
+   ============================================ */
+
+@theme {
+  /* Cores principais da marca (Verde Vibrante e Natural) */
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #2b9d58; /* Verde Premium Principal */
+  --color-primary-600: #228046;
+  --color-primary-700: #1a6337;
+  --color-primary-800: #16532e;
+  --color-primary-900: #144527;
+
+  /* Cores de apoio – Laranja/Pêssego (para alertas, botões secundários) */
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+  --color-accent-700: #c2410c;
+
+  /* Superfícies e texto – tema claro (Warm Off-White) */
+  --color-surface-50: #FCFBF8; /* Fundo principal super claro e quente */
+  --color-surface-100: #F4F3ED; /* Cards e blocos secundários */
+  --color-surface-200: #E6E4DC; /* Bordas e linhas */
+  --color-surface-300: #D0CEC4;
+  --color-surface-400: #A8A59A;
+  --color-surface-500: #7A786E; /* Textos secundários */
+  --color-surface-600: #5D5A50;
+  --color-surface-700: #45433B;
+  --color-surface-800: #302E28; /* Textos primários */
+  --color-surface-900: #1C1B17;
+  --color-surface-950: #0D0C0A;
+
+  /* Status */
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-success-500: #2b9d58;
+  --color-success-600: #228046;
+
+  /* Tipografia */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Raios de borda (Mais suaves / Arredondados) */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* Sombras */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-modal: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Sidebar */
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 72px;
+}
+
+/* ============================================
+   Reset e estilos globais
+   ============================================ */
+
+@layer base {
+  * {
+    @apply border-surface-200;
+  }
+
+  body {
+    @apply bg-surface-50 text-surface-900 font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* ── Dark Mode ──────────────────────────────── */
+  .dark body,
+  .dark {
+    --tw-bg-opacity: 1;
+    color-scheme: dark;
+  }
+
+  .dark * {
+    @apply border-surface-700;
+  }
+
+  .dark body {
+    @apply bg-surface-950 text-surface-100;
+  }
+
+  /* Scrollbar customizada */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-400;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-surface-600;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-500;
+  }
+}
+
+/* ============================================
+   Utilitários customizados
+   ============================================ */
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-md;
+  }
+
+  .dark .glass {
+    @apply bg-surface-900/80 backdrop-blur-md;
+  }
+
+  .glass-dark {
+    @apply bg-surface-900/80 backdrop-blur-md;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-r from-accent-400 to-accent-500;
+  }
+
+  /* Cards em dark mode */
+  .card-surface {
+    @apply bg-white border-surface-200;
+  }
+
+  .dark .card-surface {
+    @apply bg-surface-900 border-surface-700;
+  }
+
+  /* Input surfaces */
+  .input-surface {
+    @apply bg-white border-surface-200 text-surface-900 placeholder-surface-400;
+  }
+
+  .dark .input-surface {
+    @apply bg-surface-800 border-surface-600 text-surface-100 placeholder-surface-500;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
