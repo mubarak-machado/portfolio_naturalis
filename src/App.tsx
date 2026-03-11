@@ -35,16 +35,18 @@ import { CartProvider } from '@/contexts/CartContext'
 import AppLayout from '@/components/layout/AppLayout'
 import StoreLayout from '@/components/layout/StoreLayout'
 
+// Auth pages
+import LoginPage from '@/pages/auth/LoginPage'
+
 // Admin pages
-import LoginPage from '@/pages/LoginPage'
-import DashboardPage from '@/pages/DashboardPage'
-import ProductsPage from '@/pages/ProductsPage'
-import CustomersPage from '@/pages/CustomersPage'
-import SalesPage from '@/pages/SalesPage'
-import OrdersPage from '@/pages/OrdersPage'
-import MarketingPage from '@/pages/MarketingPage'
-import SettingsPage from '@/pages/SettingsPage'
-import HelpPage from '@/pages/HelpPage'
+import DashboardPage from '@/pages/admin/DashboardPage'
+import ProductsPage from '@/pages/admin/ProductsPage'
+import CustomersPage from '@/pages/admin/CustomersPage'
+import SalesPage from '@/pages/admin/SalesPage'
+import OrdersPage from '@/pages/admin/OrdersPage'
+import MarketingPage from '@/pages/admin/MarketingPage'
+import SettingsPage from '@/pages/admin/SettingsPage'
+import HelpPage from '@/pages/admin/HelpPage'
 
 // Help guides
 import HelpHub from '@/pages/help/HelpHub'

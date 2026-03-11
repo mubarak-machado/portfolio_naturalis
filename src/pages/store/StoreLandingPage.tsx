@@ -41,9 +41,13 @@ export default function StoreLandingPage() {
                 <div className="absolute bottom-0 left-0 w-[700px] h-[700px] rounded-full bg-accent-300/20 dark:bg-accent-900/20 blur-[150px] -translate-x-1/4 translate-y-1/4" />
 
                 <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
-                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/80 dark:bg-surface-900/80 backdrop-blur-md border border-surface-200 dark:border-surface-800 text-surface-900 dark:text-surface-100 text-sm mb-6 md:mb-8 shadow-sm group">
-                        <img src="/logo.png" alt="" className="w-5 h-5 object-contain" />
-                        <span className="font-heading font-bold tracking-tight">Rô Naturalis</span>
+                    <div className="flex flex-col items-center justify-center gap-6 mb-12">
+                        <div className="w-24 h-24 md:w-32 md:h-32 bg-white/50 dark:bg-surface-900/50 backdrop-blur-md rounded-3xl md:rounded-[2rem] p-4 md:p-6 shadow-xl border border-white/20 dark:border-surface-800/50 flex items-center justify-center group hover:scale-105 transition-transform duration-500">
+                            <img src="/logo.png" alt="Logo Rô Naturalis" className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-xl transition-all" />
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-heading font-black tracking-tight text-surface-900 dark:text-white uppercase">
+                            Rô Naturalis
+                        </h2>
                     </div>
 
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-surface-900 dark:text-white leading-[1.1] mb-6 tracking-tight">
